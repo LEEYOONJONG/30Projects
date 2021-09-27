@@ -7,10 +7,16 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    //delegate setting
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+        return true
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -18,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 초기화 함수 작성
         FirebaseApp.configure() // firebase 초기화
         
+        
+        // noti 승인 받을 수 있도록
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { _, error in
+            print("ERROR, Request Notifications Authorization: \(error.debugDescription)")
+        }
+        application.registerForRemoteNotifications()
         return true
     }
 
@@ -38,3 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// 우리는 모두 사운드, 뱃지 등 모두 뜨게 할것
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.list, .banner, .badge, .sound])
+    }
+}
