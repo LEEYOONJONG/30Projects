@@ -8,9 +8,11 @@
 import UIKit
 import Firebase
 import UserNotifications
-
+import FirebaseMessaging
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    // ** 원격알림은 시뮬레이터로 안됨.
 
     //delegate setting
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -24,6 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 초기화 함수 작성
         FirebaseApp.configure() // firebase 초기화
         
+        Messaging.messaging().delegate = self // fcm에 현재 등록 토큰이나 갱신되는 시점 알고 적절한 액션을 취할 수 있음
+        
+        // FCM 현재 등록 토큰 확인
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("ERROR FCM 등록토큰 가져오기 : \(error.localizedDescription)")
+            } else if let token = token {
+                print("FCM 등록토큰 : \(token)")
+            }
+        }
         
         // noti 승인 받을 수 있도록
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -55,5 +67,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.list, .banner, .badge, .sound])
+    }
+}
+
+extension AppDelegate: MessagingDelegate{
+    // 토큰이 갱신되는 시점. 다시 토큰 받았는지 확인이 가능
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let token = fcmToken else { return }
+        print("FCM 등록토큰 갱신 : \(token)")
     }
 }
