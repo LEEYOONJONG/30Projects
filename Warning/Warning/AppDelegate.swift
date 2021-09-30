@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // noti 승인 받을 수 있도록
+        // noti 승인 받을 수 있도록. 애플리케이션이 시작될 때 또는 적절한 시점에 원격 알림에 앱을 등록합니다.
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { _, error in
             print("ERROR, Request Notifications Authorization: \(error.debugDescription)")
@@ -71,7 +71,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 
 extension AppDelegate: MessagingDelegate{
-    // 토큰이 갱신되는 시점. 다시 토큰 받았는지 확인이 가능
+    // 토큰이 갱신되는 시점. 다시 토큰 받았는지 확인이 가능. FCM SDK는 최초 앱 시작 시 그리고 토큰이 업데이트되거나 무효화될 때마다 신규 또는 기존 토큰을 가져옵니다.
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         guard let token = fcmToken else { return }
         print("FCM 등록토큰 갱신 : \(token)")
