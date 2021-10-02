@@ -229,7 +229,7 @@
         <!--Main View Controller-->
         <scene sceneID="BXc-c6-iqD">
             <objects>
-                <viewController id="5VT-tl-oIy" customClass="MainViewController" customModule="SpotifyLogin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="5VT-tl-oIy" customClass="MainViewController" customModule="SpotifyLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5GX-4j-2wK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,17 +251,31 @@
                                     <action selector="logoutButtonTapped:" destination="5VT-tl-oIy" eventType="touchUpInside" id="RDG-oH-xOn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W33-hF-xcM">
+                                <rect key="frame" x="154" y="543" width="106" height="32"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="비밀번호 변경">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetPasswordButtonTapped:" destination="5VT-tl-oIy" eventType="touchUpInside" id="u6C-hg-RzO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HQv-6l-dIO"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="W33-hF-xcM" firstAttribute="top" secondItem="gJX-BY-4xw" secondAttribute="bottom" constant="20.5" id="AdA-ZI-r6G"/>
                             <constraint firstItem="gJX-BY-4xw" firstAttribute="top" secondItem="WBL-FU-668" secondAttribute="bottom" constant="20" id="BTv-2D-VPs"/>
+                            <constraint firstItem="W33-hF-xcM" firstAttribute="centerX" secondItem="HQv-6l-dIO" secondAttribute="centerX" id="D18-He-MNS"/>
                             <constraint firstItem="WBL-FU-668" firstAttribute="centerY" secondItem="HQv-6l-dIO" secondAttribute="centerY" id="Nbs-2f-s3w"/>
                             <constraint firstItem="gJX-BY-4xw" firstAttribute="centerX" secondItem="HQv-6l-dIO" secondAttribute="centerX" id="gd9-5r-May"/>
                             <constraint firstItem="WBL-FU-668" firstAttribute="centerX" secondItem="HQv-6l-dIO" secondAttribute="centerX" id="nUr-IQ-Sub"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="resetPasswordButton" destination="W33-hF-xcM" id="v5I-8s-lcb"/>
                         <outlet property="welcomeLabel" destination="WBL-FU-668" id="3je-d0-wVP"/>
                     </connections>
                 </viewController>
