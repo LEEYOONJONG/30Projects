@@ -12,11 +12,14 @@
         <scene sceneID="66l-s7-PKd">
             <objects>
                 <navigationController id="JSN-wY-cAY" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4OQ-Ta-yDU">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="4OQ-Ta-yDU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" systemColor="systemGrayColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -36,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0ho-bW-hZv">
-                                <rect key="frame" x="57" y="286.5" width="300" height="187.5"/>
+                                <rect key="frame" x="57" y="307" width="300" height="187.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oew-Lj-hja">
                                         <rect key="frame" x="115" y="-1" width="70" height="80"/>
@@ -58,7 +61,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Vwx-rB-irQ">
-                                <rect key="frame" x="30" y="534" width="354" height="210"/>
+                                <rect key="frame" x="30" y="554.5" width="354" height="210"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9m-oS-Z0G">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="60"/>
@@ -118,7 +121,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1zj-vX-bnU"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.089052759035669227" blue="0.0015723879872070665" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Vwx-rB-irQ" firstAttribute="centerX" secondItem="1zj-vX-bnU" secondAttribute="centerX" id="JPx-Tx-35t"/>
                             <constraint firstItem="Vwx-rB-irQ" firstAttribute="top" secondItem="0ho-bW-hZv" secondAttribute="bottom" constant="60" id="Kd9-Ky-HRC"/>
@@ -148,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="65N-jT-8FH">
-                                <rect key="frame" x="30" y="158" width="354" height="228"/>
+                                <rect key="frame" x="30" y="210" width="354" height="228"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일 주소는?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpD-uz-05a">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="24"/>
@@ -187,7 +190,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIH-sr-YTZ">
-                                <rect key="frame" x="157" y="446" width="100" height="64"/>
+                                <rect key="frame" x="157" y="498" width="100" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="0TP-Zi-Kat"/>
@@ -262,13 +265,26 @@
                                     <action selector="resetPasswordButtonTapped:" destination="5VT-tl-oIy" eventType="touchUpInside" id="u6C-hg-RzO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drq-fG-fz2">
+                                <rect key="frame" x="147.5" y="600" width="119" height="32"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="닉네임 업데이트">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="profileUpdateButtonTapped:" destination="5VT-tl-oIy" eventType="touchUpInside" id="nk4-pE-d46"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HQv-6l-dIO"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Drq-fG-fz2" firstAttribute="top" secondItem="W33-hF-xcM" secondAttribute="bottom" constant="25" id="5up-qB-USJ"/>
                             <constraint firstItem="W33-hF-xcM" firstAttribute="top" secondItem="gJX-BY-4xw" secondAttribute="bottom" constant="20.5" id="AdA-ZI-r6G"/>
                             <constraint firstItem="gJX-BY-4xw" firstAttribute="top" secondItem="WBL-FU-668" secondAttribute="bottom" constant="20" id="BTv-2D-VPs"/>
                             <constraint firstItem="W33-hF-xcM" firstAttribute="centerX" secondItem="HQv-6l-dIO" secondAttribute="centerX" id="D18-He-MNS"/>
+                            <constraint firstItem="Drq-fG-fz2" firstAttribute="centerX" secondItem="HQv-6l-dIO" secondAttribute="centerX" id="GV6-QF-haK"/>
                             <constraint firstItem="WBL-FU-668" firstAttribute="centerY" secondItem="HQv-6l-dIO" secondAttribute="centerY" id="Nbs-2f-s3w"/>
                             <constraint firstItem="gJX-BY-4xw" firstAttribute="centerX" secondItem="HQv-6l-dIO" secondAttribute="centerX" id="gd9-5r-May"/>
                             <constraint firstItem="WBL-FU-668" firstAttribute="centerX" secondItem="HQv-6l-dIO" secondAttribute="centerX" id="nUr-IQ-Sub"/>
