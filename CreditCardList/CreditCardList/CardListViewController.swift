@@ -20,6 +20,7 @@ class CardListViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // UITableView Cell Register
         let nibName = UINib(nibName: "CardListCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "CardListCell")
@@ -97,14 +98,22 @@ class CardListViewController: UITableViewController{
         if editingStyle == .delete {
             // option 1
             let cardID = creditCardList[indexPath.row].id
-            ref.child("Item\(cardID)").removeValue()
-            
+//            ref.child("Item\(cardID)").removeValue()
+            print("삭제 직전")
+            for i in creditCardList{
+                print("===>      \(i.id), \(i.rank)")
+            }
             // option 2
-//            ref.queryOrdered(byChild: "id").queryEqual(toValue: cardID).observe(.value) { [weak self] snapshot in
-//                guard let self = self, let value = snapshot.value as? [String: [String: Any]],
-//                      let key = value.keys.first else { return }
-//                self.ref.child(key).removeValue()
-//            }
+            ref.queryOrdered(byChild: "id").queryEqual(toValue: cardID).observe(.value) { [weak self] snapshot in
+                guard let self = self, let value = snapshot.value as? [String: [String: Any]],
+                      let key = value.keys.first else { return }
+                print("-->", value.keys)
+                self.ref.child(key).removeValue()
+            }
+            print("삭제 직후")
+            for i in creditCardList{
+                print("===>      \(i.id), \(i.rank)")
+            }
         }
     }
 }
