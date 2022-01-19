@@ -100,7 +100,12 @@ class ViewController: UIViewController {
                 self.firstOperand = self.result
                 self.numberOutputLabel.text = self.result
             }
-            self.currentOperation = operation
+            self.currentOperation = .unknown
+            if (self.currentOperation == .unknown) {
+                self.secondOperand = ""
+                self.result = ""
+                self.displayNumber = self.firstOperand
+            }
         }
         else { // 아직 연산자 입력 안했었다면
             self.firstOperand = self.displayNumber
