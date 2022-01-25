@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol WriteDiaryViewDelegate:AnyObject {
+    func didSelectRegister(diary:Diary)
+}
+
 class WriteDiaryViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
+    
+    weak var delegate:WriteDiaryViewDelegate?
     
     private let datePicker = UIDatePicker()
     private var diaryDate:Date?
@@ -25,6 +31,12 @@ class WriteDiaryViewController: UIViewController {
         self.confirmButton.isEnabled = false
     }
     @IBAction func tapConfirmButton(_ sender: Any) {
+        guard let title = self.titleTextField.text else { return }
+        guard let contents = self.contentsTextView.text else { return }
+        guard let date = self.diaryDate else { return }
+        let diary = Diary(title: title, contents: contents, date: date, isStar: false)
+        self.delegate?.didSelectRegister(diary: diary)
+        self.navigationController?.popViewController(animated: true)
     }
     private func configureContentsTextView(){
         let borderColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
