@@ -128,7 +128,7 @@
         <!--일기 작성-->
         <scene sceneID="KAk-gP-Jw9">
             <objects>
-                <viewController id="yre-yH-F9T" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteDiaryViewController" id="yre-yH-F9T" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cnt-uF-YFg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,7 +216,7 @@
         <!--Diary Detail View Controller-->
         <scene sceneID="dRH-De-w65">
             <objects>
-                <viewController id="Jhc-35-men" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailViewController" id="Jhc-35-men" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="es9-OM-8EP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,12 +278,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="수정"/>
+                                        <connections>
+                                            <action selector="tapEditButton:" destination="Jhc-35-men" eventType="touchUpInside" id="UXv-Do-pHL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8F-9S-V0p">
                                         <rect key="frame" x="98.5" y="0.0" width="48.5" height="31"/>
                                         <color key="tintColor" red="0.99607843139999996" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="삭제"/>
+                                        <connections>
+                                            <action selector="tapDeleteButton:" destination="Jhc-35-men" eventType="touchUpInside" id="5LR-SF-GYq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -307,6 +313,11 @@
                             <constraint firstItem="aIP-T0-LxM" firstAttribute="trailing" secondItem="hQg-jn-zKB" secondAttribute="trailing" constant="20" id="x7j-gJ-9BD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="hQg-jn-zKB" id="DPf-gL-os2"/>
+                        <outlet property="dateLabel" destination="aQw-KL-9Ik" id="cGB-ZA-wLC"/>
+                        <outlet property="titleLabel" destination="L5I-E3-CCE" id="JgP-Ie-fmt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gru-8r-ub6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -329,10 +340,10 @@
             </objects>
             <point key="canvasLocation" x="-810" y="539"/>
         </scene>
-        <!--View Controller-->
+        <!--Star View Controller-->
         <scene sceneID="wbc-bJ-AZh">
             <objects>
-                <viewController id="N6l-IS-G2d" sceneMemberID="viewController">
+                <viewController id="N6l-IS-G2d" customClass="StarViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ez3-vp-13e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -379,6 +390,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="80"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="LAk-Td-BzR" id="RRC-WN-Hw4"/>
+                                            <outlet property="titleLabel" destination="X2c-f3-huK" id="9SH-bn-28S"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -393,6 +408,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="t4t-Gs-DI0"/>
+                    <connections>
+                        <outlet property="collectionView" destination="hPr-jw-Y2Q" id="NNP-I5-6kH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2X-lH-hIM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

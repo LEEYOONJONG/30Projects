@@ -10,6 +10,10 @@ import UIKit
 protocol WriteDiaryViewDelegate:AnyObject {
     func didSelectRegister(diary:Diary)
 }
+enum DiaryEditorMode{
+    case new
+    case edit(IndexPath, Diary)
+}
 
 class WriteDiaryViewController: UIViewController {
 
@@ -23,20 +27,35 @@ class WriteDiaryViewController: UIViewController {
     private let datePicker = UIDatePicker()
     private var diaryDate:Date?
     
+    var diaryEditorMode:DiaryEditorMode = .new 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureContentsTextView()
         self.configureDatePicker()
         self.configureInputField()
         self.confirmButton.isEnabled = false
+        self.configureEditMode()
     }
     @IBAction func tapConfirmButton(_ sender: Any) {
         guard let title = self.titleTextField.text else { return }
         guard let contents = self.contentsTextView.text else { return }
         guard let date = self.diaryDate else { return }
         let diary = Diary(title: title, contents: contents, date: date, isStar: false)
-        self.delegate?.didSelectRegister(diary: diary)
+        
+        switch self.diaryEditorMode{
+        case .new:
+            self.delegate?.didSelectRegister(diary: diary) // 평소처럼
+        case let .edit(indexPath, _):
+            NotificationCenter.default.post(
+                name: NSNotification.Name("editDiary"),
+                object: diary,
+                userInfo: ["indexPath.row" : indexPath.row]
+            )
+        }
         self.navigationController?.popViewController(animated: true)
+        
+        
     }
     private func configureContentsTextView(){
         let borderColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
@@ -78,6 +97,24 @@ class WriteDiaryViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    private func configureEditMode(){
+        switch self.diaryEditorMode{
+        case let .edit(_, diary):
+            self.titleTextField.text = diary.title
+            self.contentsTextView.text = diary.contents
+            self.dateTextField.text = self.dateToString(date: diary.date)
+            self.diaryDate = diary.date
+            self.confirmButton.title = "수정"
+        default:
+            break
+        }
+    }
+    private func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yy년 MM월 dd일(EEEEE)"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.string(from: date)
     }
 }
 extension WriteDiaryViewController: UITextViewDelegate{

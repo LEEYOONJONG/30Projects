@@ -21,6 +21,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.configureCollectionView()
         self.loadDiaryList()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(editDiaryNotification),
+            name: NSNotification.Name("editDiary"),
+            object: nil
+        )
+    }
+    @objc func editDiaryNotification(_ notification:Notification){
+        print("ViewController.swift selector function ")
+        guard let diary = notification.object as? Diary else { return }
+        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+        self.diaryList[row] = diary
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
+        self.collectionView.reloadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,7 +84,16 @@ class ViewController: UIViewController {
         })
     }
 }
-
+extension ViewController:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DiaryDetailViewController") as? DiaryDetailViewController else { return }
+        let diary = self.diaryList[indexPath.row]
+        viewController.diary = diary
+        viewController.indexPath = indexPath
+        viewController.delegate = self // DiaryDetailViewController에서 선언한 delegate는 여기서 이용하겠다.
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
 
 extension ViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -97,4 +122,15 @@ extension ViewController:WriteDiaryViewDelegate {
         })
         self.collectionView.reloadData()
     }
+}
+extension ViewController:DiaryDetailViewDelegate{
+    func didSelectStar(indexPath: IndexPath, isStar: Bool) {
+        self.diaryList[indexPath.row].isStar = isStar
+    }
+    
+    func didSelectDelete(indexPath: IndexPath) {
+        self.diaryList.remove(at: indexPath.row)
+        self.collectionView.deleteItems(at: [indexPath])
+    }
+    
 }
