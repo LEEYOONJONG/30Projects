@@ -43,8 +43,8 @@ class ViewController: UIViewController {
     @objc func editDiaryNotification(_ notification:Notification){
         print("ViewController.swift selector function ")
         guard let diary = notification.object as? Diary else { return }
-        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
-        self.diaryList[row] = diary
+        guard let index = self.diaryList.firstIndex(where: {$0.uuidString == diary.uuidString }) else { return }
+        self.diaryList[index] = diary
         self.diaryList = self.diaryList.sorted(by: {
             $0.date.compare($1.date) == .orderedDescending
         })
@@ -53,14 +53,17 @@ class ViewController: UIViewController {
     @objc func starDiaryNotification(_ notification:Notification){
         guard let starDiary = notification.object as? [String:Any] else { return }
         guard let isStar = starDiary["isStar"] as? Bool else { return }
-        guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
-        self.diaryList[indexPath.row].isStar = isStar
+        guard let uuidString = starDiary["uuidString"] as? String else { return }
+        guard let index = self.diaryList.firstIndex(where: {$0.uuidString == uuidString }) else { return }
+        self.diaryList[index].isStar = isStar
     }
     @objc func deleteDiaryNotification(_ notification:Notification){
-        guard let indexPath = notification.object as? IndexPath else { return }
+        guard let starDiary = notification.object as? [String:Any] else { return }
+        guard let uuidString = starDiary["uuidString"] as? String else { return }
+        guard let index = self.diaryList.firstIndex(where: {$0.uuidString == uuidString }) else { return }
         // didSelectDelete 안 함수를 복붙
-        self.diaryList.remove(at: indexPath.row)
-        self.collectionView.deleteItems(at: [indexPath])
+        self.diaryList.remove(at: index)
+        self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let writeDiaryViewController = segue.destination as? WriteDiaryViewController {
@@ -86,7 +89,8 @@ class ViewController: UIViewController {
                 "title" : $0.title,
                 "contents" : $0.contents,
                 "date" : $0.date,
-                "isStar" : $0.isStar
+                "isStar" : $0.isStar,
+                "uuidString" : $0.uuidString
             ]
         }
         let userDefaults = UserDefaults.standard
@@ -100,7 +104,8 @@ class ViewController: UIViewController {
             guard let contents = $0["contents"] as? String else { return nil }
             guard let date = $0["date"] as? Date else { return nil }
             guard let isStar = $0["isStar"] as? Bool else { return nil }
-            return Diary(title: title, contents: contents, date: date, isStar: isStar)
+            guard let uuidString = $0["uuidString"] as? String else { return nil }
+            return Diary(uuidString:uuidString, title: title, contents: contents, date: date, isStar: isStar)
         }
         self.diaryList = self.diaryList.sorted(by: {
             $0.date.compare($1.date) == .orderedDescending
