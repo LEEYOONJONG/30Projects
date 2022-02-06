@@ -16,6 +16,6 @@ class StarCell: UICollectionViewCell {
         super.init(coder: coder)
         self.contentView.layer.cornerRadius = 5
         self.contentView.layer.borderWidth = 2
-        self.contentView.layer.borderColor = UIColor.black.cgColor
+        self.contentView.layer.borderColor = UIColor.gray.cgColor
     }
 }
