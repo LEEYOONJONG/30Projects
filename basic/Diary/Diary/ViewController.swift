@@ -41,9 +41,13 @@ class ViewController: UIViewController {
         )
     }
     @objc func editDiaryNotification(_ notification:Notification){
-        print("ViewController.swift selector function ")
+        print("VC @objc func editDiaryNotification ")
         guard let diary = notification.object as? Diary else { return }
+        print(diaryList)
+        print("========")
+        print("diary.uuidString : ", diary.uuidString)
         guard let index = self.diaryList.firstIndex(where: {$0.uuidString == diary.uuidString }) else { return }
+        print("diary : ", diary)
         self.diaryList[index] = diary
         self.diaryList = self.diaryList.sorted(by: {
             $0.date.compare($1.date) == .orderedDescending

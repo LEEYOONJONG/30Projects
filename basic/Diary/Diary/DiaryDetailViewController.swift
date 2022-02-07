@@ -41,10 +41,10 @@ class DiaryDetailViewController: UIViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     @objc func editDiaryNotification(_ notification: Notification){
-        print("DiaryDetailViewController.swift selector function ")
+        print("DiaryDetailVC @objc func editDiaryNotification ")
         guard let diary = notification.object as? Diary else { return }
-        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
         self.diary = diary
+        
         self.configureView()
     }
     @objc func starDiaryNotification(_ notification: Notification){

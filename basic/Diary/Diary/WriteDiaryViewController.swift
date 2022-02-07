@@ -47,7 +47,7 @@ class WriteDiaryViewController: UIViewController {
             let diary = Diary(uuidString: UUID().uuidString, title: title, contents: contents, date: date, isStar: false)
             self.delegate?.didSelectRegister(diary: diary) // 평소처럼
         case let .edit(indexPath, diary):
-            let diary = Diary(uuidString: UUID().uuidString, title: title, contents: contents, date: date, isStar: diary.isStar)
+            let diary = Diary(uuidString: diary.uuidString, title: title, contents: contents, date: date, isStar: diary.isStar)
             NotificationCenter.default.post(
                 name: NSNotification.Name("editDiary"),
                 object: diary,
