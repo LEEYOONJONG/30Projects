@@ -22,13 +22,13 @@
                                     <constraint firstAttribute="width" constant="100" id="bys-dz-Quo"/>
                                 </constraints>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYs-wQ-MIc">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYs-wQ-MIc">
                                 <rect key="frame" x="24" y="248" width="366" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="nnh-p2-uEg">
+                            <progressView opaque="NO" alpha="0.0" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="nnh-p2-uEg">
                                 <rect key="frame" x="48" y="326" width="318" height="4"/>
                             </progressView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1c-0U-YNH">
@@ -78,6 +78,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="Ecg-Wj-axh" id="akn-Hw-NIa"/>
                         <outlet property="datePicker" destination="h1c-0U-YNH" id="T2M-pK-sJy"/>
+                        <outlet property="imageView" destination="9Sy-xI-2yE" id="K2b-xn-Q4L"/>
                         <outlet property="progressView" destination="nnh-p2-uEg" id="1wS-98-7Ks"/>
                         <outlet property="timerLabel" destination="jYs-wQ-MIc" id="3XY-fd-ApP"/>
                         <outlet property="toggleButton" destination="qYA-VA-xVC" id="0zN-s0-6f8"/>
