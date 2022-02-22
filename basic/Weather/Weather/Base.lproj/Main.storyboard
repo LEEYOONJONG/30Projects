@@ -25,6 +25,9 @@
                                 <rect key="frame" x="157" y="132" width="100.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="날씨 가져오기"/>
+                                <connections>
+                                    <action selector="tapFetchWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oy7-BJ-6ZF"/>
+                                </connections>
                             </button>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gv0-yO-jOa">
                                 <rect key="frame" x="24" y="213" width="366" height="138.5"/>
@@ -90,6 +93,15 @@
                             <constraint firstItem="u7h-gg-4at" firstAttribute="top" secondItem="m8T-aq-da2" secondAttribute="bottom" constant="24" id="qcx-le-Erb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="nEr-UY-vu7" id="CZ6-j1-dfN"/>
+                        <outlet property="cityNameTextField" destination="m8T-aq-da2" id="L4K-2f-VUe"/>
+                        <outlet property="maxTempLabel" destination="fHd-Sz-F0E" id="NtS-8V-Row"/>
+                        <outlet property="minTempLabel" destination="Mcl-Hy-3Q1" id="HLq-Es-Ppb"/>
+                        <outlet property="tempLabel" destination="wWP-12-YNl" id="sfe-Qs-A5Q"/>
+                        <outlet property="weatherDescriptionLabel" destination="NO7-Th-6fv" id="mJT-oJ-pKy"/>
+                        <outlet property="weatherStackView" destination="Gv0-yO-jOa" id="raC-19-u7G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
