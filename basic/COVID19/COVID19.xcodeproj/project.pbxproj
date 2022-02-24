@@ -14,7 +14,8 @@
 		98159D0627C5F0A1000A293B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98159D0427C5F0A1000A293B /* Main.storyboard */; };
 		98159D0827C5F0A3000A293B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98159D0727C5F0A3000A293B /* Assets.xcassets */; };
 		98159D0B27C5F0A3000A293B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98159D0927C5F0A3000A293B /* LaunchScreen.storyboard */; };
-		98F651CD27C60EBC009E4AB5 /* CovidDetailViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F651CC27C60EBC009E4AB5 /* CovidDetailViewControllerTableViewController.swift */; };
+		98F651CD27C60EBC009E4AB5 /* CovidDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F651CC27C60EBC009E4AB5 /* CovidDetailViewController.swift */; };
+		98F651CF27C62396009E4AB5 /* CityCovidOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F651CE27C62396009E4AB5 /* CityCovidOverview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +29,8 @@
 		98159D0727C5F0A3000A293B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98159D0A27C5F0A3000A293B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98159D0C27C5F0A3000A293B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98F651CC27C60EBC009E4AB5 /* CovidDetailViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDetailViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		98F651CC27C60EBC009E4AB5 /* CovidDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDetailViewController.swift; sourceTree = "<group>"; };
+		98F651CE27C62396009E4AB5 /* CityCovidOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCovidOverview.swift; sourceTree = "<group>"; };
 		A0D859A812EB04A1BE695C32 /* Pods-COVID19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID19.debug.xcconfig"; path = "Target Support Files/Pods-COVID19/Pods-COVID19.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,8 +79,9 @@
 				98159CFE27C5F0A1000A293B /* AppDelegate.swift */,
 				98159D0027C5F0A1000A293B /* SceneDelegate.swift */,
 				98159D0227C5F0A1000A293B /* ViewController.swift */,
+				98F651CE27C62396009E4AB5 /* CityCovidOverview.swift */,
+				98F651CC27C60EBC009E4AB5 /* CovidDetailViewController.swift */,
 				98159D0427C5F0A1000A293B /* Main.storyboard */,
-				98F651CC27C60EBC009E4AB5 /* CovidDetailViewControllerTableViewController.swift */,
 				98159D0727C5F0A3000A293B /* Assets.xcassets */,
 				98159D0927C5F0A3000A293B /* LaunchScreen.storyboard */,
 				98159D0C27C5F0A3000A293B /* Info.plist */,
@@ -212,7 +215,8 @@
 				98159D0327C5F0A1000A293B /* ViewController.swift in Sources */,
 				98159CFF27C5F0A1000A293B /* AppDelegate.swift in Sources */,
 				98159D0127C5F0A1000A293B /* SceneDelegate.swift in Sources */,
-				98F651CD27C60EBC009E4AB5 /* CovidDetailViewControllerTableViewController.swift in Sources */,
+				98F651CF27C62396009E4AB5 /* CityCovidOverview.swift in Sources */,
+				98F651CD27C60EBC009E4AB5 /* CovidDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
