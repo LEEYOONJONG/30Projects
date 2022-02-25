@@ -27,6 +27,7 @@ class CovidDetailViewController: UITableViewController {
     }
     
     func configureView(){
+        navigationItem.largeTitleDisplayMode = .always // 이 뷰컨에서만 Large Title 보이게끔
         guard let covidOverview = self.covidOverview else { return }
         self.title = covidOverview.countryName // 네비게이션 바 타이틀에 지역 이름 들어가게
         self.newCaseCell.detailTextLabel?.text = "\(covidOverview.newCase)명"

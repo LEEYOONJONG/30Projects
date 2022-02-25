@@ -101,18 +101,21 @@ class ViewController: UIViewController {
         self.pieChartView.data = PieChartData(dataSet: dataSet)
     }
     func designChartView(dataSet:PieChartDataSet){
+        self.pieChartView.holeRadiusPercent = 0.3
+        self.pieChartView.holeColor = .clear
         dataSet.sliceSpace = 1
-        dataSet.entryLabelColor = .black // 항목이름이 검정색
+        dataSet.entryLabelColor = .white // 항목이름이 검정색
+        dataSet.entryLabelFont = .boldSystemFont(ofSize: 16)
         dataSet.valueTextColor = .black // 파이차트 안의 항목도 검정색으로
         dataSet.xValuePosition = .outsideSlice // 항목이름이 파이차트에 표시되게 하지 않고 바깥쪽 선으로 표시되게
         dataSet.valueLinePart1OffsetPercentage = 0.8
         dataSet.valueLinePart1Length = 0.2
-        dataSet.valueLinePart1OffsetPercentage = 0.3 // 가독성 좋게끔
+        dataSet.valueLinePart2Length = 0.7 // 가독성 좋게끔
 
         dataSet.colors = ChartColorTemplates.vordiplom() + ChartColorTemplates.joyful()
         + ChartColorTemplates.liberty() + ChartColorTemplates.pastel()
         + ChartColorTemplates.material()//색상 추가하면 파이차트 항목이 다양한 색상으로 표시되게 됨.
-
+        
         // 현재 앵글에서 80도정도 회전된 상태로 파이차트 표시되게
         self.pieChartView.spin(
             duration: 0.3,
