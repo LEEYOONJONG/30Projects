@@ -75,9 +75,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="F2e-Vj-v3E">
-                                <rect key="frame" x="301" y="154" width="93" height="50"/>
+                                <rect key="frame" x="264" y="154" width="130" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="93" id="hOE-8z-ErR"/>
+                                    <constraint firstAttribute="width" constant="130" id="hOE-8z-ErR"/>
                                     <constraint firstAttribute="height" constant="50" id="uRU-d6-dHH"/>
                                 </constraints>
                                 <locale key="locale" localeIdentifier="ko_KR"/>

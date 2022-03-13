@@ -12,13 +12,14 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let userNotificationCenter:UNUserNotificationCenter? = nil
+    let userNotificationCenter = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UNUserNotificationCenter.current().delegate = self
         let authorizationOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
-        userNotificationCenter?.requestAuthorization(options: authorizationOptions, completionHandler: { _, error in
+        print("lelel")
+        userNotificationCenter.requestAuthorization(options: authorizationOptions, completionHandler: { _, error in
             if let error = error {
                 print("Error: ", error.localizedDescription)
             }

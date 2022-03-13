@@ -1,14 +1,9 @@
-//
-//  AlarmListViewController.swift
-//  Drink
-//
-//  Created by YOONJONG on 2022/03/11.
-//
-
 import UIKit
+import UserNotifications
 
 class AlertListViewController: UITableViewController {
     var alerts:[Alert] = []
+    let userNotificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +26,9 @@ class AlertListViewController: UITableViewController {
             alertList.append(newAlert)
             alertList.sort { $0.date < $1.date}
             self.alerts = alertList
-            print("alerts : ", self.alerts)
+            print("newAlerts : ", newAlert)
             UserDefaults.standard.set(try? PropertyListEncoder().encode(self.alerts), forKey: "alerts")
+            self.userNotificationCenter.addNotificationRequest(by: newAlert)
             self.tableView.reloadData()
         }
         self.present(addAlertVC, animated: true, completion: nil)
@@ -77,6 +73,7 @@ extension AlertListViewController{
         case .delete:
             self.alerts.remove(at: indexPath.row)
             UserDefaults.standard.set(try? PropertyListEncoder().encode(self.alerts), forKey: "alerts")
+            userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alerts[indexPath.row].id])
             self.tableView.reloadData()
             return
         default:
