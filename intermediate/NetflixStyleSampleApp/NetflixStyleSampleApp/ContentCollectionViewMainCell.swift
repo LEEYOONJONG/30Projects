@@ -85,7 +85,7 @@ class ContentCollectionViewMainCell:UICollectionViewCell{
         contentStackView.spacing = 20
         contentStackView.snp.makeConstraints{
             $0.leading.trailing.equalToSuperview().inset(30)
-            $0.height.equalTo(60)
+            $0.height.equalTo(70)
         }
         
         [plusButton, infoButton].forEach{
