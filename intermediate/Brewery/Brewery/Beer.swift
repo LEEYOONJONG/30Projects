@@ -5,7 +5,7 @@ struct Beer: Decodable{
     let name, taglineString, description, brewersTips, imageURL:String?
     let foodParing:[String]?
     
-    var tagLint:String{
+    var tagLine:String{
         let tags = taglineString?.components(separatedBy: ". ")
         let hashtags = tags?.map {
             "#" + $0.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: " #")

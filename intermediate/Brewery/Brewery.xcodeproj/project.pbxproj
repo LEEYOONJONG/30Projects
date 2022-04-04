@@ -15,6 +15,8 @@
 		98D1CD6E27F94F79004231B4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 98D1CD6D27F94F79004231B4 /* Kingfisher */; };
 		98D1CD7127F94F9E004231B4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 98D1CD7027F94F9E004231B4 /* SnapKit */; };
 		98D1CD7327F94FBA004231B4 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D1CD7227F94FBA004231B4 /* Beer.swift */; };
+		98D1CD7527FA7F9C004231B4 /* BeerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D1CD7427FA7F9C004231B4 /* BeerListCell.swift */; };
+		98D1CD7727FA8568004231B4 /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D1CD7627FA8568004231B4 /* BeerDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		98D1CD6427F94D77004231B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98D1CD6A27F94DE6004231B4 /* BeerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewController.swift; sourceTree = "<group>"; };
 		98D1CD7227F94FBA004231B4 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		98D1CD7427FA7F9C004231B4 /* BeerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListCell.swift; sourceTree = "<group>"; };
+		98D1CD7627FA8568004231B4 /* BeerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				98D1CD5627F94D75004231B4 /* AppDelegate.swift */,
 				98D1CD5827F94D75004231B4 /* SceneDelegate.swift */,
 				98D1CD6A27F94DE6004231B4 /* BeerListViewController.swift */,
+				98D1CD7627FA8568004231B4 /* BeerDetailViewController.swift */,
+				98D1CD7427FA7F9C004231B4 /* BeerListCell.swift */,
 				98D1CD7227F94FBA004231B4 /* Beer.swift */,
 				98D1CD5F27F94D77004231B4 /* Assets.xcassets */,
 				98D1CD6127F94D77004231B4 /* LaunchScreen.storyboard */,
@@ -150,9 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				98D1CD6B27F94DE6004231B4 /* BeerListViewController.swift in Sources */,
+				98D1CD7727FA8568004231B4 /* BeerDetailViewController.swift in Sources */,
 				98D1CD5727F94D75004231B4 /* AppDelegate.swift in Sources */,
 				98D1CD5927F94D75004231B4 /* SceneDelegate.swift in Sources */,
 				98D1CD7327F94FBA004231B4 /* Beer.swift in Sources */,
+				98D1CD7527FA7F9C004231B4 /* BeerListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
