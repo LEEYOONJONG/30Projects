@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+
 final class TodayViewController: UIViewController {
     private lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -53,5 +54,9 @@ extension TodayViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let value:CGFloat = 20
         return UIEdgeInsets(top: value, left: value, bottom: value, right: value)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = AppDetailViewController()
+        present(vc, animated: true)
     }
 }

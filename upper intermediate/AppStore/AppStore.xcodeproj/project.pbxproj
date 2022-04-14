@@ -25,6 +25,7 @@
 		9878782F28080078002E8CD4 /* RankingFeatureSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878782E28080078002E8CD4 /* RankingFeatureSectionView.swift */; };
 		9878783128080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878783028080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift */; };
 		9878783328081392002E8CD4 /* ExchangeCodeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878783228081391002E8CD4 /* ExchangeCodeButtonView.swift */; };
+		9878783528082064002E8CD4 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878783428082064002E8CD4 /* AppDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		9878782E28080078002E8CD4 /* RankingFeatureSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureSectionView.swift; sourceTree = "<group>"; };
 		9878783028080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureCollectionViewCell.swift; sourceTree = "<group>"; };
 		9878783228081391002E8CD4 /* ExchangeCodeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCodeButtonView.swift; sourceTree = "<group>"; };
+		9878783428082064002E8CD4 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				9878782E28080078002E8CD4 /* RankingFeatureSectionView.swift */,
 				9878783028080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift */,
 				9878783228081391002E8CD4 /* ExchangeCodeButtonView.swift */,
+				9878783428082064002E8CD4 /* AppDetailViewController.swift */,
 				9878782C2807EC41002E8CD4 /* Separator.swift */,
 			);
 			path = App;
@@ -214,6 +217,7 @@
 				9878782D2807EC41002E8CD4 /* Separator.swift in Sources */,
 				9878782228070A00002E8CD4 /* TodayCollectionViewCell.swift in Sources */,
 				987878292807DC91002E8CD4 /* FeatureSectionView.swift in Sources */,
+				9878783528082064002E8CD4 /* AppDetailViewController.swift in Sources */,
 				9878783128080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift in Sources */,
 				9878782F28080078002E8CD4 /* RankingFeatureSectionView.swift in Sources */,
 			);
