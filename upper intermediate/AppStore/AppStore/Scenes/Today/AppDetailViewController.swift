@@ -1,7 +1,9 @@
 import SnapKit
 import UIKit
+import Kingfisher
 
 final class AppDetailViewController:UIViewController{
+    private let today:Today
     
     private let appIconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -48,10 +50,20 @@ final class AppDetailViewController:UIViewController{
         view.backgroundColor = .systemBackground
         setupViews()
         appIconImageView.backgroundColor = .lightGray
-        titleLabel.text = "타이틀"
-        subTitleLabel.text = "서브타이틀"
+        titleLabel.text = today.title
+        subTitleLabel.text = today.subTitle
+        if let imageURL = URL(string: today.imageURL){ // 내가 추가
+            appIconImageView.kf.setImage(with: imageURL)
+        }
+    }
+    init(today: Today){
+        self.today = today
+        super.init(nibName: nil, bundle: nil)
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 // MARK: Private
 private extension AppDetailViewController{

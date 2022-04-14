@@ -32,12 +32,14 @@ final class FeatureSectionCollectionViewCell:UICollectionViewCell{
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    func setup(){
+    func setup(feature: Feature){
         setupLayout()
-        typeLabel.text = "타입라벨"
-        appNameLabel.text = "앱이름라벨"
-        descriptionLabel.text = "설명입니다"
-        imageView.backgroundColor = .lightGray
+        typeLabel.text = feature.type
+        appNameLabel.text = feature.appName
+        descriptionLabel.text = feature.description
+        if let imageURL = URL(string: feature.imageURL){
+            imageView.kf.setImage(with: imageURL)
+        }
     }
 }
 private extension FeatureSectionCollectionViewCell{

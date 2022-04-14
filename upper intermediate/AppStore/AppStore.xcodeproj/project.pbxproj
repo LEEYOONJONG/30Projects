@@ -26,6 +26,12 @@
 		9878783128080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878783028080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift */; };
 		9878783328081392002E8CD4 /* ExchangeCodeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878783228081391002E8CD4 /* ExchangeCodeButtonView.swift */; };
 		9878783528082064002E8CD4 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878783428082064002E8CD4 /* AppDetailViewController.swift */; };
+		9878783928085DD7002E8CD4 /* Feature.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9878783628085DD6002E8CD4 /* Feature.plist */; };
+		9878783A28085DD7002E8CD4 /* RankingFeature.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9878783728085DD7002E8CD4 /* RankingFeature.plist */; };
+		9878783B28085DD7002E8CD4 /* Today.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9878783828085DD7002E8CD4 /* Today.plist */; };
+		9878783E28085E3C002E8CD4 /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878783D28085E3C002E8CD4 /* Today.swift */; };
+		9878784028085E81002E8CD4 /* RankingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878783F28085E81002E8CD4 /* RankingFeature.swift */; };
+		9878784228086714002E8CD4 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878784128086714002E8CD4 /* Feature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +53,12 @@
 		9878783028080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureCollectionViewCell.swift; sourceTree = "<group>"; };
 		9878783228081391002E8CD4 /* ExchangeCodeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCodeButtonView.swift; sourceTree = "<group>"; };
 		9878783428082064002E8CD4 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
+		9878783628085DD6002E8CD4 /* Feature.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Feature.plist; sourceTree = "<group>"; };
+		9878783728085DD7002E8CD4 /* RankingFeature.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RankingFeature.plist; sourceTree = "<group>"; };
+		9878783828085DD7002E8CD4 /* Today.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Today.plist; sourceTree = "<group>"; };
+		9878783D28085E3C002E8CD4 /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
+		9878783F28085E81002E8CD4 /* RankingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeature.swift; sourceTree = "<group>"; };
+		9878784128086714002E8CD4 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +96,10 @@
 			children = (
 				9859FF9728002CEF0007E6BE /* AppDelegate.swift */,
 				9859FF9928002CEF0007E6BE /* SceneDelegate.swift */,
+				9878783D28085E3C002E8CD4 /* Today.swift */,
+				9878784128086714002E8CD4 /* Feature.swift */,
+				9878783F28085E81002E8CD4 /* RankingFeature.swift */,
+				9878783C28085DDD002E8CD4 /* Data */,
 				987877F7280582E3002E8CD4 /* Scenes */,
 				9859FFA028002CF20007E6BE /* Assets.xcassets */,
 				9859FFA228002CF20007E6BE /* LaunchScreen.storyboard */,
@@ -105,6 +121,7 @@
 		987877F8280582EF002E8CD4 /* Today */ = {
 			isa = PBXGroup;
 			children = (
+				9878783428082064002E8CD4 /* AppDetailViewController.swift */,
 				987877F92805830C002E8CD4 /* TodayViewController.swift */,
 				9878782128070A00002E8CD4 /* TodayCollectionViewCell.swift */,
 				9878782328071C83002E8CD4 /* TodayCollectionHeaderView.swift */,
@@ -121,10 +138,19 @@
 				9878782E28080078002E8CD4 /* RankingFeatureSectionView.swift */,
 				9878783028080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift */,
 				9878783228081391002E8CD4 /* ExchangeCodeButtonView.swift */,
-				9878783428082064002E8CD4 /* AppDetailViewController.swift */,
 				9878782C2807EC41002E8CD4 /* Separator.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		9878783C28085DDD002E8CD4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9878783628085DD6002E8CD4 /* Feature.plist */,
+				9878783728085DD7002E8CD4 /* RankingFeature.plist */,
+				9878783828085DD7002E8CD4 /* Today.plist */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +220,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9878783A28085DD7002E8CD4 /* RankingFeature.plist in Resources */,
+				9878783B28085DD7002E8CD4 /* Today.plist in Resources */,
+				9878783928085DD7002E8CD4 /* Feature.plist in Resources */,
 				9859FFA428002CF20007E6BE /* LaunchScreen.storyboard in Resources */,
 				9859FFA128002CF20007E6BE /* Assets.xcassets in Resources */,
 			);
@@ -207,8 +236,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				987877FA2805830C002E8CD4 /* TodayViewController.swift in Sources */,
+				9878783E28085E3C002E8CD4 /* Today.swift in Sources */,
 				9859FF9C28002CEF0007E6BE /* TabBarController.swift in Sources */,
 				9878783328081392002E8CD4 /* ExchangeCodeButtonView.swift in Sources */,
+				9878784028085E81002E8CD4 /* RankingFeature.swift in Sources */,
 				9859FF9828002CEF0007E6BE /* AppDelegate.swift in Sources */,
 				9878782428071C83002E8CD4 /* TodayCollectionHeaderView.swift in Sources */,
 				9878782728072570002E8CD4 /* AppViewController.swift in Sources */,
@@ -217,6 +248,7 @@
 				9878782D2807EC41002E8CD4 /* Separator.swift in Sources */,
 				9878782228070A00002E8CD4 /* TodayCollectionViewCell.swift in Sources */,
 				987878292807DC91002E8CD4 /* FeatureSectionView.swift in Sources */,
+				9878784228086714002E8CD4 /* Feature.swift in Sources */,
 				9878783528082064002E8CD4 /* AppDetailViewController.swift in Sources */,
 				9878783128080C7F002E8CD4 /* RankingFeatureCollectionViewCell.swift in Sources */,
 				9878782F28080078002E8CD4 /* RankingFeatureSectionView.swift in Sources */,

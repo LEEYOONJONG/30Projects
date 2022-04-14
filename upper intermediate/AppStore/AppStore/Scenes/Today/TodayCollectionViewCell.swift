@@ -1,6 +1,6 @@
 import SnapKit
 import UIKit
-
+import Kingfisher
 final class TodayCollectionViewCell:UICollectionViewCell{
     private lazy var titleLabel:UILabel = {
         let label = UILabel()
@@ -29,11 +29,14 @@ final class TodayCollectionViewCell:UICollectionViewCell{
         return imageView
     }()
     
-    func setup(){
+    func setup(today: Today){
         setupSubViews()
-        subTitleLabel.text = "서브타이틀입니다"
-        titleLabel.text = "타이틀입니다"
-        descriptionLabel.text = "설명이지롱"
+        subTitleLabel.text = today.subTitle
+        titleLabel.text = today.title
+        descriptionLabel.text = today.description
+        if let imageURL = URL(string: today.imageURL) {
+            imageView.kf.setImage(with: imageURL)
+        }
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 10

@@ -40,11 +40,11 @@ final class RankingFeatureCollectionViewCell:UICollectionViewCell{
         label.textColor = .secondaryLabel
         return label
     }()
-    func setup(){
+    func setup(rankingFeature: RankingFeature){
         setupLayout()
-        titleLabel.text = "앱이름"
-        descriptionLabel.text = "설명"
-        inAppPurchaseInfoLabel.isHidden = [true, false].randomElement() ?? true // 임의로 랜덤으로
+        titleLabel.text = rankingFeature.title
+        descriptionLabel.text = rankingFeature.description
+        inAppPurchaseInfoLabel.isHidden = !rankingFeature.isInPurchaseApp
     }
 }
 private extension RankingFeatureCollectionViewCell{
