@@ -11,19 +11,16 @@ final class AppViewController:UIViewController{
         stackView.distribution = .equalSpacing
         stackView.spacing = 0
         
-        let featureSectionView = UIView()
+        let featureSectionView = FeatureSectionView(frame: .zero)
         let rankingFeatureSectionView = UIView()
         let exchangeCodeButtonView = UIView()
         
         // 색상을 알아보기 쉽게 지정
-        featureSectionView.backgroundColor = .red
         rankingFeatureSectionView.backgroundColor = .blue
         exchangeCodeButtonView.backgroundColor = .yellow
 
         [featureSectionView, rankingFeatureSectionView, exchangeCodeButtonView].forEach{
-            $0.snp.makeConstraints{
-                $0.height.equalTo(500) // 임의로
-            }
+            
             stackView.addArrangedSubview($0)
         }
         
