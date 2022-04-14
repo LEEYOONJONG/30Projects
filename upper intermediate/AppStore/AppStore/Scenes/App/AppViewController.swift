@@ -12,14 +12,14 @@ final class AppViewController:UIViewController{
         stackView.spacing = 0
         
         let featureSectionView = FeatureSectionView(frame: .zero)
-        let rankingFeatureSectionView = UIView()
-        let exchangeCodeButtonView = UIView()
-        
-        // 색상을 알아보기 쉽게 지정
-        rankingFeatureSectionView.backgroundColor = .blue
-        exchangeCodeButtonView.backgroundColor = .yellow
+        let rankingFeatureSectionView = RankingFeatureSectionView(frame: .zero)
+        let exchangeCodeButtonView = ExchangeCodeButtonView(frame: .zero)
+        let spacingView = UIView()
+        spacingView.snp.makeConstraints{
+            $0.height.equalTo(100)
+        }
 
-        [featureSectionView, rankingFeatureSectionView, exchangeCodeButtonView].forEach{
+        [featureSectionView, rankingFeatureSectionView, exchangeCodeButtonView, spacingView].forEach{
             
             stackView.addArrangedSubview($0)
         }
