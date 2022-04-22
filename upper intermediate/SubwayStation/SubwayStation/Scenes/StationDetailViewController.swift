@@ -6,6 +6,10 @@ final class StationDetailViewController:UIViewController{
     private let station:Station
     private var realtimeArrivalList:[StationArrivalDataResponseModel.RealtimeArrivalList] = []
     
+    // 주기
+    var realTime = Timer()
+    var counter:Int = 10
+    
     private lazy var refreshControl:UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
@@ -23,16 +27,35 @@ final class StationDetailViewController:UIViewController{
         collectionView.dataSource = self
         return collectionView
     }()
+    private lazy var timerButton:UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemBlue
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 30, weight: .black)
+        button.layer.cornerRadius = 40
+        return button
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = station.stationName
         
         view.addSubview(collectionView)
+        view.addSubview(timerButton)
         collectionView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
+        timerButton.snp.makeConstraints{
+            $0.bottom.trailing.equalToSuperview().inset(16)
+            $0.height.width.equalTo(80)
+            
+        }
         collectionView.refreshControl = refreshControl
         fetchData()
+        checkTimeTrigger()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        realTime.invalidate()
+        counter = 10
     }
     init(station: Station){
         self.station = station
@@ -43,6 +66,7 @@ final class StationDetailViewController:UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     @objc private func fetchData(){
+        counter = 10
         var stationName = station.stationName
 
         if stationName == "이수" || stationName == "총신대입구" {
@@ -59,6 +83,19 @@ final class StationDetailViewController:UIViewController{
                 self?.collectionView.reloadData()
             }
             .resume()
+    }
+}
+extension StationDetailViewController{
+    private func checkTimeTrigger(){
+        realTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+    @objc private func updateCounter(){
+        self.timerButton.setTitle(String(counter), for: .normal)
+        if (counter == 0){
+            fetchData()
+            print("Refreshing Timer Occured !")
+        }
+        counter -= 1
     }
 }
 extension StationDetailViewController:UICollectionViewDataSource{
