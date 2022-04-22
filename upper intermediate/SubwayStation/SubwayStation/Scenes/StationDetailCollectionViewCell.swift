@@ -13,7 +13,7 @@ final class StationDetailCollectionViewCell:UICollectionViewCell{
         return label
     }()
     
-    func setup(){
+    func setup(with realtimeArrivalList: StationArrivalDataResponseModel.RealtimeArrivalList){
         layer.cornerRadius = 15
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 10
@@ -30,7 +30,7 @@ final class StationDetailCollectionViewCell:UICollectionViewCell{
             $0.bottom.equalToSuperview().inset(16)
         }
         //라벨이 잘 추가되었나
-        lineLabel.text = "죽전 방면"
-        remainTimeLabel.text = "서울숲 도착"
+        lineLabel.text = realtimeArrivalList.currentStation
+        remainTimeLabel.text = realtimeArrivalList.remainTime
     }
 }
