@@ -4,6 +4,8 @@ import Alamofire
 
 class StationSearchViewController: UIViewController {
     private var stations:[Station] = []
+    private var searchText:String = ""
+    private var searchButtonTapped:Bool = false
     private lazy var tableView:UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -68,11 +70,22 @@ extension StationSearchViewController:UISearchBarDelegate{
         tableView.reloadData()
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        tableView.isHidden = true
+        if searchButtonTapped {
+            tableView.isHidden = false
+            searchButtonTapped = false // initialize
+        } else {
+            tableView.isHidden = true
+        }
         stations = []
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         requestStationName(from: searchText)
+        self.searchText = searchText
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("검색 : ", searchText)
+        requestStationName(from: searchText)
+        searchButtonTapped = true
     }
 }
 extension StationSearchViewController:UITableViewDelegate{
