@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import Alamofire
 
 final class StationDetailViewController:UIViewController{
     private lazy var refreshControl:UIRefreshControl = {
@@ -27,10 +28,18 @@ final class StationDetailViewController:UIViewController{
             $0.edges.equalToSuperview()
         }
         collectionView.refreshControl = refreshControl
+        fetchData()
     }
-    @objc func fetchData(){
-        print("refresh")
-        refreshControl.endRefreshing()
+    @objc private func fetchData(){
+        let stationName = "서울역"
+        let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(stationName.replacingOccurrences(of: "역", with: ""))"
+        AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+            .responseDecodable(of: StationArrivalDataResponseModel.self) { [weak self] response in
+                self?.refreshControl.endRefreshing()
+                guard case .success(let data) = response.result else { return }
+                print(data.realtimeArrivalList)
+            }
+            .resume()
     }
 }
 extension StationDetailViewController:UICollectionViewDataSource{
