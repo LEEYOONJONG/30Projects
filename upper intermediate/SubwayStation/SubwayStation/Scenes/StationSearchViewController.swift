@@ -43,6 +43,7 @@ class StationSearchViewController: UIViewController {
                     let self = self,
                     case .success(let data) = response.result else { return }
                 self.stations = data.stations
+                self.stations = self.stations.sorted(by: {$0.lineNumber < $1.lineNumber})
                 self.tableView.reloadData()
             }
             .resume()
