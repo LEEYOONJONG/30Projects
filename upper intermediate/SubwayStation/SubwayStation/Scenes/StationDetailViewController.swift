@@ -43,8 +43,13 @@ final class StationDetailViewController:UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     @objc private func fetchData(){
-        let stationName = station.stationName
+        var stationName = station.stationName
+
+        if stationName == "이수" || stationName == "총신대입구" {
+            stationName = "총신대입구(이수)"
+        }
         let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(stationName.replacingOccurrences(of: "역", with: ""))"
+        print("urlString : ", urlString)
         AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
             .responseDecodable(of: StationArrivalDataResponseModel.self) { [weak self] response in
                 self?.refreshControl.endRefreshing()
