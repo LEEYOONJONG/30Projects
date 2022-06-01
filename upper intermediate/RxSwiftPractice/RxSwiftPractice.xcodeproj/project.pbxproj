@@ -19,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		983BB255283B3CAA00BC8FBF /* Traits.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Traits.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		983C1BA5284758DE004832FE /* CombiningOperator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CombiningOperator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		988B5DD8283B8203006C5B8F /* Subject.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Subject.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		988B5DD9283CC93A006C5B8F /* Filtering.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Filtering.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		988B5DDA283CFA01006C5B8F /* TransformingOperator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TransformingOperator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -49,6 +50,7 @@
 		98AD0CEE2833A5EA0088448A = {
 			isa = PBXGroup;
 			children = (
+				983C1BA5284758DE004832FE /* CombiningOperator.playground */,
 				988B5DDA283CFA01006C5B8F /* TransformingOperator.playground */,
 				988B5DD9283CC93A006C5B8F /* Filtering.playground */,
 				988B5DD8283B8203006C5B8F /* Subject.playground */,
